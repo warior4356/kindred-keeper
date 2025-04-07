@@ -93,9 +93,8 @@ async def log(
 
     for transaction in transactions:
         user = await bot.fetch_user(transaction.user)
-        transaction_date = transaction.date.strftime("%Y-%m-%d")
         response += (f"{transaction.id:<5} | " + f"{transaction.currency:<4} | " +
-                     f"{transaction.amount:<6} | " + f"{transaction_date} | "
+                     f"{transaction.amount:<6} | " + f"{transaction.date.strftime('%Y-%m-%d')} | "
                      + f"{user.name:<32} | " + f"{transaction.reason:<32}" + "\n")
 
     response += "```"
@@ -127,7 +126,7 @@ async def create(
     characters = database.get_characters_by_owner(ctx.author.id)
 
     if len(characters) >= config["character_limit"]:
-        await ctx.respond(f"The limit is {config["character_limit"]} characters and you have {len(characters)} characters!")
+        await ctx.respond(f"The limit is {config['character_limit']} characters and you have {len(characters)} characters!")
         return
 
     if len(char_name) > 20:
