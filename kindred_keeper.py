@@ -93,8 +93,9 @@ async def log(
 
     for transaction in transactions:
         user = await bot.fetch_user(transaction.user)
+        transaction_date = transaction.date.strftime("%Y-%m-%d")
         response += (f"{transaction.id:<5} | " + f"{transaction.currency:<4} | " +
-                     f"{transaction.amount:<6} | " + f"{transaction.date.strftime("%Y-%m-%d"):<3} | "
+                     f"{transaction.amount:<6} | " + f"{transaction_date} | "
                      + f"{user.name:<32} | " + f"{transaction.reason:<32}" + "\n")
 
     response += "```"
