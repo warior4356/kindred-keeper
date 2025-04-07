@@ -1,0 +1,9 @@
+token: "token"
+guild_ids:
+  - 123456789
+  - 987654321
+gm_roles:
+  - 123456789
+  - 987654321
+character_limit: 3
+page_size: 20
